@@ -8,7 +8,7 @@ let currentPlayer = 1;
 
 const dummyBoard = [
     1, 2, 1,
-    2, 1, 2,
+    2, 2, 2,
     2, 1, 2
 ];
 
@@ -39,6 +39,15 @@ const checkWinner = () => {
         [0, 4, 8],
         [2, 4, 6]
     ];
+
+    for(let combinations of winningCombinations){
+        const [a, b, c] = combinations;
+        if(board[a] != 0 && board[a] === board[b] && board[b] === board[c]){
+            console.log(`Win detected!`);
+            alert(`win`);
+        }
+    }
 };
 
 renderBoard();
+checkWinner();
