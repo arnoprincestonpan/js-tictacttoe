@@ -8,11 +8,18 @@ let currentPlayer = 1;
 
 const dummyBoard = [
     1, 2, 1,
-    2, 2, 2,
+    2, 1, 2,
     2, 1, 2
 ];
 
 board = dummyBoard;
+
+const resetBoard = () => {
+    board = Array(9).fill(0);
+    cells.forEach(cell => {
+        cell.textContent = "";
+    });
+}
 
 const renderBoard = () => {
     cells.forEach((cell, index) => {
@@ -47,7 +54,10 @@ const checkWinner = () => {
             alert(`win`);
         }
     }
+
+    if(!board.includes(0)){
+        alert("It's a draw!");
+    }
 };
 
 renderBoard();
-checkWinner();
